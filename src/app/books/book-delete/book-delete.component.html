@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Delete Book</h2>
+
+<mat-dialog-content>
+  <!-- <mat-form-field>
+      <input matInput [(ngModel)]="data.name" placeholder="Category">
+  </mat-form-field> -->
+  <p><strong>Are you sure you want to delete this book?</strong>
+  </p>
+  <!-- <div *ngIf="deletedBook">
+      {{deletedBook.title}}
+  </div> -->
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="btn btn-light" (click)="cancel()">Cancel</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button mat-raised-button class="btn btn-danger" (click)="delete()">Delete anyway</button>
+</mat-dialog-actions>

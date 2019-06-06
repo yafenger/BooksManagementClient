@@ -1,0 +1,117 @@
+<br/><br/>
+<div class="form-bg">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-12">
+              <form class="form-horizontal" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+                  <div class="form-content">
+                      <div class="header"><i class="fas fa-book-open"></i>&nbsp;{{FormTitle}}</div>
+                      <div class="row form-group">
+                        <div class="col-sm-12" [ngClass]="{'has-error':formErrors.title}">
+                          <label for="title">Title *</label>
+                          <input class="form-control" id="title" placeholder="Title" type="text" formControlName="title" (blur)="logValidationErrors(bookForm)" >  
+                          <span class="error" *ngIf="formErrors.title">
+                            {{formErrors.title}}
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <div class="col-sm-6">
+                              <label for="category">Category *</label>
+                              <select class="form-control" id="category" formControlName="category">
+                                <!-- <option value="-1">All</option> -->
+                                <option *ngFor="let cat of categories" [value]="cat._id">{{cat.name}}</option>
+                              </select>
+                          </div>
+                          <div class="col-sm-6" [ngClass]="{'has-error':formErrors.ISBN}">
+                            <label for="ISBN">ISBN *</label>
+                            <input class="form-control" id="ISBN" placeholder="ISBN" type="text" formControlName="ISBN" (blur)="logValidationErrors(bookForm)">
+                            <span class="error" *ngIf="formErrors.ISBN">
+                                {{formErrors.ISBN}}
+                            </span>
+                        </div>
+                      </div>
+                      <div class="form-group row">                  
+                          <div formArrayName="authors" *ngFor="let au of authorArray.controls;let i=index" class="col-sm-6">                          
+                            <div [formGroupName]="i">
+                              <label attr.for="{{'authorName'+i}}">
+                                    Author {{i+1}}*
+                              </label>
+                              <div class="row"
+                               [ngClass]="{'has-error': au.get('authorName').invalid && au.get('authorName').touched}">            
+                                  <div class="col-sm-6">
+                                      <input type="text" class="form-control" id="{{'authorName'+i}}" placeholder="author {{i+1}}"
+                                       formControlName="authorName" (blur)="logValidationErrors(bookForm)">
+                                      <span class="error" *ngIf="au.get('authorName').errors?.required && au.get('authorName').touched">
+                                          Author name is required.
+                                      </span>
+                                  </div>
+                                  <div class="col-sm-4 row" >
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-primary" (click)="addAuthor()">+</button>
+                                    </div>
+                                    <div class="col-sm-2" *ngIf="authorArray.length>1 && i>0">
+                                        <button type="button" class="btn btn-primary" (click)="deleteAuthor(i)">-</button>
+                                    </div>
+                                  </div>
+                              </div>  
+                            </div>
+
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-6">
+                          <label for="image">Image</label><br />
+                          <img [src]="book.image?book.image:'assets/images/default.png'" height="200" width="150"
+                           *ngIf="book"/>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-6" [ngClass]="{'has-error':formErrors.publisher}">
+                          <label for="publisher">Publisher *</label>
+                          <input class="form-control" id="publisher" placeholder="Publisher" type="text" formControlName="publisher" (blur)="logValidationErrors(bookForm)">
+                          <span class="error" *ngIf="formErrors.publisher">
+                              {{formErrors.publisher}}
+                          </span>
+                        </div>
+                        <div class="col-sm-3" [ngClass]="{'has-error':formErrors.price}">
+                          <label for="price">Price *</label>
+                          <input class="form-control" id="price" step="0.01" placeholder="Price" type="number" formControlName="price" (blur)="logValidationErrors(bookForm)">
+                          <span class="error" *ngIf="formErrors.price">
+                              {{formErrors.price}}
+                          </span>
+                        </div>
+                        <div class="col-sm-3" [ngClass]="{'has-error':formErrors.stock}">
+                          <label for="stock">Stock *</label>
+                          <input class="form-control" id="stock" placeholder="Stock" type="number" formControlName="stock" (blur)="logValidationErrors(bookForm)">
+                          <span class="error" *ngIf="formErrors.stock">
+                              {{formErrors.stock}}
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <div class="col-sm-6" [ngClass]="{'has-error':formErrors.publicationDate}">
+                            <label for="publicationDate">Publication Date *</label>
+                            <input bsDatepicker [bsConfig]="datePickerConfig"  class="form-control" id="publicationDate" placeholder="Publication Date" type="text" formControlName="publicationDate" (blur)="logValidationErrors()">
+                            <span class="error" *ngIf="formErrors.publicationDate">
+                                {{formErrors.publicationDate}}
+                            </span>
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-12">
+                            <label for="description">Description</label>
+                            <textarea class="form-control rounded-0" id="description" rows="10" formControlName="description" (blur)="logValidationErrors(bookForm)"></textarea>   
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <div class="col-md-12">
+                              <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid"><strong>Submit</strong></button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

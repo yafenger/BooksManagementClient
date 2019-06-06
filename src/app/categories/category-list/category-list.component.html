@@ -1,0 +1,71 @@
+<!-- <div>
+  <label>
+     Add Category
+  </label>
+  
+  <button >
+    Add
+  </button>
+</div> -->
+<!-- <div>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <button>
+    add
+  </button>
+</div> -->
+<!-- <div class="input-group mb-3">
+  <input type="text" placeholder="Add Category here..." aria-label="Add Category"
+    aria-describedby="addButton">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="addButton">ADD</button>
+  </div>
+</div> -->
+
+<br /><br /><br /><br />
+
+<div id="main">
+  <div id="container">
+    <h3><strong>Category</strong></h3><br />
+    <div class="grid grid-pad">
+      <a class="col-1-6" (click)="onClickAll()">
+        <div class="module">
+          <h4>All</h4>
+        </div>
+      </a>
+      <a *ngFor="let category of categories" class="col-1-6" (click)="onClick(category._id)">
+        <div class="module">
+          <h4>{{ category.name }}</h4>
+        </div>
+      </a>
+      <a class="col-1-6" (click)="openDialog()">
+        <div class="module" title="add new category">
+          <h4><i class="fas fa-plus"></i></h4>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <mat-list>
+  <mat-list-item  *ngFor="let category of categories">
+    <img class="cp"
+          mat-list-avatar
+         src="#">
+    <h3 mat-line class="cp" > {{category.name}} </h3>
+    <div class="sl-actions">
+       <mat-icon class="remove-icon"
+                (click)="">
+        delete
+      </mat-icon>
+      <mat-icon class="edit-icon"
+                >
+        edit
+      </mat-icon>
+    </div>
+  </mat-list-item>
+</mat-list> -->

@@ -1,0 +1,119 @@
+<div class="main txkt-main">
+  <br />
+  <div class="nav">
+    <div class="nav-inner">
+      <div *ngIf="specificCategory">
+      </div>
+      <div style="cursor: pointer" class="category">
+        <div class="card" (click)="onClickAll()" [class.active]="isAll">
+          <div class="card-body">
+            All
+          </div>
+        </div>
+      </div>
+      <div style="cursor: pointer" *ngFor="let category of categories" class="category">
+        <div class="card" (click)="onClickCategory(category._id,category)"
+          [class.active]="specificCategory && category.name===specificCategory.name">
+          <div class="card-body">
+            {{category.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mainCont" style="cursor: pointer">
+    <div class="mainCont-inner">
+      <div class="container">
+        <br />
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Book" [(ngModel)]="bookTitle"
+            (input)="search()" />
+        </div>
+        <div *ngFor="let book of books">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <strong>{{book.title}}</strong>
+              </h5>
+              <div class="card-text row">
+                <div class="col-md-2">
+                  <img class="imageClass img-thumbnail" [src]="book.image?book.image:'assets/images/default.png'"
+                    *ngIf="book" />
+                </div>
+                <div class="col-md-6">
+                  <div class="row bookinfo">
+                    <label>
+                      <strong>Author:</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <div *ngFor="let au of book.author">
+                      {{au}}; &nbsp;&nbsp;
+                    </div>
+                  </div>
+                  <div class="row bookinfo">
+                    <label>
+                      <strong>Publisher:</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    {{book.publisher}}
+                  </div>
+                  <div class="row bookinfo">
+                    <label>
+                      <strong>Publication Date:</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    {{book.publicationDate|date:"M/d/yyyy"}}
+                  </div>
+                  <br />
+                  <div class="row bookinfo">
+                    <div *ngIf="!book.description">
+                      No Description.
+                    </div>
+                    <div class="bookcontainer">
+                      {{book.description}}
+                    </div>
+                    <br/>
+                    <a style="color:#3372e6"
+                    (click)="open(descriptionModal)">Read More >></a>
+                    <ng-template #descriptionModal let-modal>
+                      <div class="modal-header">
+                        <h4 class="modal-title">Description</h4>
+                      </div>
+                      <div class="modal-body">
+                        {{book.description}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('Cross click')">CLOSE</button>
+                      </div>
+                    </ng-template> 
+                  </div>
+                </div>
+                <div class="col-md-2 bookinfo">
+                  <div>
+                    {{book.ISBN}}
+                  </div>
+                  <br />
+                  <div>
+                    ${{book.price}}
+                  </div>
+                  <br />
+                  <div>
+                    <label><strong> Stock: </strong>&nbsp;&nbsp;</label>{{book.stock}}
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="row">
+                    <div class="col-md-1" title="Edit book" (click)="editBook(book._id)">
+                      <i class="fas fa-pencil-alt" style="font-size:30px;color:#3372e6;"></i>
+                    </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-1" title="Delete book" (click)=notifyDelete(book._id)>
+                      <i class="far fa-trash-alt" style="font-size:30px;color:red;"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

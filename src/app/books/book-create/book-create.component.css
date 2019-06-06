@@ -1,0 +1,114 @@
+form{
+    font-family: 'Roboto Mono', monospace;
+    background: #e3f2fd;
+    padding: 8px;
+}
+ 
+.form-horizontal .header {
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3372e6;
+    
+    padding: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #3372e6;
+}
+label{
+    color: #3372e6;
+    font-weight: 600;
+}
+ 
+.form-horizontal .form-content{
+    border: 1px solid #fff;
+}
+ 
+.form-group{
+    padding: 0 40px;
+}
+ 
+.form-horizontal .form-control{
+    padding: 10px;
+    height: 50px;
+    font-size: 16px;
+    color: #000000;
+    border: 1px solid #fff;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+ 
+.form-horizontal .form-control:focus{
+    border-color: #3372e6;
+    box-shadow: none;
+}
+ 
+.form-horizontal .control-label{
+    font-size: 17px;
+    color: #fff;
+    position: absolute;
+    top: 5px;
+    left: 27px;
+    text-align: center;
+}
+
+ 
+/* .form-horizontal .btn{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    font-weight:900;
+    color: #4e4e4e;
+    margin: 10px 0;
+    border: 2px solid #3372e6;
+    background: transparent;
+    border-radius: 0;
+    padding: 10px 25px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s ease 0s;
+}
+ 
+.form-horizontal .btn:hover{
+    border-color: #3372e6;
+    color: #333;
+} */
+ 
+/* .form-horizontal .btn:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #3372e6;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s ease 0s;
+}
+ 
+.form-horizontal .btn:hover:before{
+    top: 0;
+} */
+ 
+.form-control::-moz-placeholder{
+    color:#fff;
+}
+
+.error{
+    color:red;
+    font-size: 12;
+}
+
+#image{
+    display:none;
+}
+
+.img-upload-container{
+    cursor:pointer;
+}
+.btn-bwm{
+    background-color: #3372e6;
+    border-color:#3372e6;;
+    color:white;
+}
