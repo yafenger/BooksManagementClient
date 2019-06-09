@@ -10,18 +10,12 @@ import {Book} from '../../models/book.model';
 })
 export class BookDeleteComponent implements OnInit {
 
- // deletedBook:Book;
 
   constructor(public dialogRef:MatDialogRef<BookDeleteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _bookService:BookService) { }
 
-  ngOnInit() { 
-  //   this._bookService.getBook(this.bookID).subscribe(
-  //   (book)=>this.deletedBook=book,
-  //   (err: any) => console.log(err)
-  // );
-  }
+  ngOnInit() { }
 
   cancel(): void {
     this.dialogRef.close();
@@ -30,7 +24,6 @@ export class BookDeleteComponent implements OnInit {
 
   delete(){
     this.dialogRef.close(this.data);
-    //console.log("data",this.data.bookID); 
     this._bookService.deleteBook(this.data.bookID).subscribe(
       () => console.log(`Book with ID = ${this.data.bookID} has been Deleted`),
       (error: any) => { console.log(error); }

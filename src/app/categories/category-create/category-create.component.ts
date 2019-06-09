@@ -11,10 +11,6 @@ import { CategoryService } from 'src/app/shared/category.service';
 })
 export class CategoryCreateComponent implements OnInit {
 
-  // newCategory:Category={
-  //   _id:null,
-  //   name:this.data.name
-  // }
   categories:Category[];
   constructor(public dialogRef:MatDialogRef<CategoryCreateComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,

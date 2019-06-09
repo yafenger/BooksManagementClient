@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import {ActivatedRoute } from '@angular/router';
 
 import {Category} from '../../models/category.model';
-//import {CategoryService} from '../../shared/category.service';
 import {CategoryCreateComponent} from '../category-create/category-create.component';
 
 //Material
@@ -17,7 +16,6 @@ import {MatDialog} from '@angular/material';
 export class CategoryListComponent implements OnInit {
 
   categories:Category[];
-  //newCategory:Category;
   name:string;
 
   constructor(private _router:Router,
@@ -25,10 +23,6 @@ export class CategoryListComponent implements OnInit {
               public dialog: MatDialog) { }
 
   ngOnInit() {
-    // this._categoryService.getCategories().subscribe(
-    //   (categoryList)=>this.categories=categoryList,
-    //   (err)=>console.log(err)
-    // );
    this.categories=this._route.snapshot.data['categoryList'];
   }
 

@@ -19,8 +19,7 @@ import {BookListResolverService} from './shared/book-list-resolver.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    //BookListComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,6 @@ import {BookListResolverService} from './shared/book-list-resolver.service';
     HttpClientModule,
     SharedModule
   ],
-  //schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     BookService,
     CategoryService,

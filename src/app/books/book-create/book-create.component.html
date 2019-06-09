@@ -19,7 +19,6 @@
                           <div class="col-sm-6">
                               <label for="category">Category *</label>
                               <select class="form-control" id="category" formControlName="category">
-                                <!-- <option value="-1">All</option> -->
                                 <option *ngFor="let cat of categories" [value]="cat._id">{{cat.name}}</option>
                               </select>
                           </div>
