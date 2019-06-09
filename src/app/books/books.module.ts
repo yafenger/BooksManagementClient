@@ -9,6 +9,7 @@ import { BookCreateComponent } from './book-create/book-create.component';
 import {SharedModule} from '../shared/shared.module';
 import { MatDialogModule} from '@angular/material';
 import { BookDeleteComponent } from './book-delete/book-delete.component';
+import {CreateBookCanDeactivateGuardService} from '../books/create-book-can-deactivate-guard.service';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { BookDeleteComponent } from './book-delete/book-delete.component';
     NgbModule,
     BsDatepickerModule.forRoot()
   ],
-  providers:[],
+  providers:[CreateBookCanDeactivateGuardService],
   entryComponents:[
     BookDeleteComponent
   ],
