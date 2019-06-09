@@ -30,7 +30,7 @@
             (input)="search()" />
         </div>
         <div *ngFor="let book of books">
-          <div class="card">
+          <div class="card" [class.selected]="selectedBookID===book._id">
             <div class="card-body">
               <h5 class="card-title">
                 <strong>{{book.title}}</strong>

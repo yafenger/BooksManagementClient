@@ -217,7 +217,7 @@ export class BookCreateComponent implements OnInit {
     if(this.book._id){
       console.log("new",this.book);
       this._bookService.updateBook(this.book).subscribe(
-        ()=>this._router.navigate(['/books']),
+        ()=>this._router.navigate(['/books',{bookId:selectedId}]),
         (err:any)=>console.log(err)     
       );
     }else{
@@ -234,7 +234,8 @@ export class BookCreateComponent implements OnInit {
     this.book.title = this.bookForm.value.title;
     this.book.publisher = this.bookForm.value.publisher;
     this.book.publicationDate = new Date(this.bookForm.value.publicationDate);
-    this.book.image = this.bookForm.value.image;
+   // this.book.image = this.bookForm.value.image;
+   this.book.image ="assets/images/"+this.bookForm.value.ISBN+".JPG";
     this.book.ISBN = this.bookForm.value.ISBN;
     this.book.price = this.bookForm.value.price;
     this.book.stock = this.bookForm.value.stock;

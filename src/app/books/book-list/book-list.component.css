@@ -49,3 +49,9 @@
   overflow: hidden;
 }
 
+.selected{
+    border-color:#3372e6;
+    border-style:solid;
+    border-width:2px;
+}
+

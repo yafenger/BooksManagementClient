@@ -27,6 +27,7 @@ export class BookListComponent implements OnInit {
   isAll:boolean=false;
   specificCategory:Category;
   bookTitle:string;
+  selectedBookID:string;
   
 
 
@@ -94,6 +95,9 @@ export class BookListComponent implements OnInit {
         (err: any) => console.log(err)
       );
     });
+
+    //get the book which has been edited or added 
+    this.selectedBookID=this._route.snapshot.paramMap.get('bookId');
   }
 
   search(){
