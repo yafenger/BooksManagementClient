@@ -4,6 +4,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+
 import { BooksRoutingModule } from './books-routing.module';
 import { BookCreateComponent } from './book-create/book-create.component';
 import {SharedModule} from '../shared/shared.module';
@@ -25,7 +26,7 @@ import {CreateBookCanDeactivateGuardService} from '../books/create-book-can-deac
     MatDialogModule,
     ReactiveFormsModule,
     NgbModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
   ],
   providers:[CreateBookCanDeactivateGuardService],
   entryComponents:[

@@ -29,7 +29,7 @@
           <input type="text" class="form-control" placeholder="Search Book" [(ngModel)]="bookTitle"
             (input)="search()" />
         </div>
-        <div *ngFor="let book of books">
+        <div *ngFor="let book of books|paginate: { itemsPerPage: 5, currentPage: p }">
           <div class="card" [class.selected]="selectedBookID===book._id">
             <div class="card-body">
               <h5 class="card-title">
@@ -113,6 +113,7 @@
           </div>
           <br />
         </div>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </div>
     </div>
   </div>

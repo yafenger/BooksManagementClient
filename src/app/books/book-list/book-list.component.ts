@@ -28,7 +28,7 @@ export class BookListComponent implements OnInit {
   specificCategory:Category;
   bookTitle:string;
   selectedBookID:string;
-  
+  p: number = 1;
 
 
   constructor(private _route: ActivatedRoute,

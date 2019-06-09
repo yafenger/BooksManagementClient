@@ -1,14 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-//import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 
-
 //Material 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 //Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +28,7 @@ import {BookListResolverService} from './shared/book-list-resolver.service';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule
   ],
   //schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
