@@ -10,7 +10,6 @@ import{Book} from '../../models/book.model';
 import { BookService } from 'src/app/shared/book.service';
 import {CategoryService} from '../../shared/category.service';
 import { Category } from 'src/app/models/category.model';
-//import {Author} from '../../models/author.model';
 
 @Component({
   selector: 'app-book-create',
@@ -37,9 +36,6 @@ export class BookCreateComponent implements OnInit {
       'required':'Price is required.',
       'pattern':'Please enter valid number.'
     },
-    // 'image': {
-    //   'required':'Iamge is required.'
-    // },
     'publisher': {
       'required':'Publisher is required.'
     },
@@ -56,10 +52,7 @@ export class BookCreateComponent implements OnInit {
     },
     'description':{
       'maxLength':'Description must be less than 300 characters.'
-    },
-    // 'category':{
-    //   'required':'Category is required.'
-    // }
+    }
   };
   
 
@@ -82,7 +75,6 @@ export class BookCreateComponent implements OnInit {
         Validators.required,
         Validators.pattern("^[+]?([0-9]+(?:[\.][0-9]*)?|\.[0-9]+)$")]
       ],
-      //image: ['', Validators.required],
       publisher: ['', Validators.required],
       publicationDate:['', Validators.required],
       ISBN: ['', [
@@ -221,10 +213,11 @@ export class BookCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.mapFormValuesToBookModel();
+    let selectedId=this.book._id?this.book._id:null
     if(this.book._id){
       console.log("new",this.book);
       this._bookService.updateBook(this.book).subscribe(
-        ()=>this._router.navigate(['books']),
+        ()=>this._router.navigate(['/books']),
         (err:any)=>console.log(err)     
       );
     }else{
@@ -263,27 +256,6 @@ export class BookCreateComponent implements OnInit {
     this.book.category = this.bookForm.value.category;
     this.book.description = this.bookForm.value.description;
   }
-
-    // preview(files) {
-    //   //check whether there are no files to upload
-    //   if (files.length === 0)
-    //     return;
-   
-    //   //validate the mime type of the uploaded file as only image
-    //   var mimeType = files[0].type;
-    //   if (mimeType.match(/image\/*/) == null) {
-    //     this.message = "Only images are supported.";
-    //     return;
-    //   }
-   
-    //   var reader = new FileReader();
-    //   this.imagePath = files;
-    //   reader.readAsDataURL(files[0]); 
-    //   reader.onload = (_event) => { 
-    //     //result attribute contains URL representing file's data
-    //     this.imgURL = reader.result; 
-    //   }
-    // }
 
 
 }
