@@ -1,27 +1,3 @@
-<!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark blue-gradient ie-nav" [containerInside]="false">
-  <mdb-navbar-brand>
-      <a class="logo navbar-brand" href="#"><strong>BOOK</strong></a>
-  </mdb-navbar-brand>
-  <links>
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item waves-light" [class.active]="true" mdbWavesEffect>
-              <a class="nav-link">Home <span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link" routerLink="/categories">Category</a>
-          </li>
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <a class="nav-link" routerLink="/books">Books</a>             
-          </li>
-          <li class="nav-item waves-light" mdbWavesEffect>
-              <i class="fas fa-plus-circle" style="font-size:30px;color:white;"></i>
-          </li>
-          
-         
-      </ul>
-     
-  </links>
-</mdb-navbar> -->
 <div>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#"><strong>BOOK</strong></a>
@@ -32,9 +8,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#"><strong>Home</strong> <span class="sr-only">(current)</span></a>
-        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" routerLink="/categories" id="navbarDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,10 +15,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/books">All</a>
-            <!-- <div class="dropdown-divider"></div> -->
             <a class="dropdown-item" *ngFor="let category of categories"
               (click)="onClick(category._id)">{{ category.name }}</a>
-            <!-- <div class="dropdown-divider"></div> -->
           </div>
         </li>
         <li class="nav-item">
@@ -56,10 +27,6 @@
               style="font-size:30px;color:rgb(28, 108, 184);"></i></a>
         </li>
       </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
     </div>
   </nav>
 
